@@ -1,0 +1,12 @@
+# Archivos de dependencias de Node.js
+node_modules/
+
+# Carpeta de salida de Eleventy
+_site/
+
+# Archivos de sistema operativo
+.DS_Store
+Thumbs.db
+
+# Archivos de entorno (si los usas en el futuro)
+.env

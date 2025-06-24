@@ -1,0 +1,189 @@
+/* ==========================================================================
+   HOJA DE ESTILOS PRINCIPAL - sysadminctl.service
+   Paleta: Plasma y Acero Pulido
+   ========================================================================== */
+
+:root {
+    /* -- Colores Base -- */
+    --bg-main: #1A1A1A;              /* Acero Oscuro */
+    --card-bg: #2C2C2C;             /* Un gris ligeramente más claro para las tarjetas */
+    
+    /* -- Tipografía -- */
+    --text-primary: #FFFFFF;         /* Blanco Brillante para títulos */
+    --text-secondary: #E0E0E0;       /* Gris Claro para párrafos */
+    --text-muted: #A0A0A0;          /* Gris Oscuro para texto menos importante */
+
+    /* -- Colores de Marca y Acento -- */
+    --brand-color: #007BFF;         /* Azul Plasma para botones, enlaces y acentos */
+    --brand-text-color: #FFFFFF;   /* Texto sobre los botones de marca */
+    
+    /* -- Bordes -- */
+    --border-color: #3A3A3A;        /* Un borde sutil para separar elementos */
+}
+
+/* ==========================================================================
+   Estilos Generales y Reseteo
+   ========================================================================== */
+body {
+    font-family: 'Rubik', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--bg-main);
+    color: var(--text-secondary);
+    line-height: 1.6;
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.container { max-width: 1200px; margin: 0 auto; padding: 40px; }
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+.grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+.grid-4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; }
+h1, h2, h3, h4, h5, h6 { color: var(--text-primary); font-weight: 500; }
+.lead { color: var(--text-secondary); font-size: 1.2rem; }
+img { max-width: 100%; height: auto; }
+
+/* ==========================================================================
+   Header y Navegación
+   ========================================================================== */
+header { 
+    background-color: rgba(26, 26, 26, 0.85); 
+    backdrop-filter: blur(10px); 
+    padding: 20px 0; 
+    position: sticky; 
+    top: 0; 
+    z-index: 100; 
+    border-bottom: 1px solid var(--border-color); 
+}
+header .container { display: flex; justify-content: space-between; align-items: center; padding-top: 0; padding-bottom: 0; }
+.logo a { color: var(--text-primary); font-size: 1.5rem; text-decoration: none; font-weight: 500; }
+nav ul { list-style: none; padding: 0; margin: 0; display: flex; }
+nav ul li { margin-left: 25px; }
+nav ul li a { color: var(--text-secondary); text-decoration: none; transition: color 0.3s ease; font-weight: 400; }
+nav ul li a:hover { color: var(--brand-color); }
+nav ul li.cta a { background-color: var(--brand-color); color: var(--brand-text-color); padding: 10px 20px; border-radius: 5px; }
+nav ul li.cta a:hover { opacity: 0.85; }
+
+/* ==========================================================================
+   Botones
+   ========================================================================== */
+.button { display: inline-block; padding: 15px 30px; border-radius: 5px; text-decoration: none; font-weight: 500; transition: all 0.3s ease; border: 2px solid transparent; cursor: pointer; font-size: 1rem; }
+.button.primary { background-color: var(--brand-color); color: var(--brand-text-color); border-color: var(--brand-color); }
+.button.primary:hover { opacity: 0.85; }
+.button.secondary { background-color: transparent; color: var(--brand-color); border-color: var(--brand-color); }
+.button.secondary:hover { background-color: var(--brand-color); color: var(--brand-text-color); }
+.button.large { font-size: 1.2rem; padding: 20px 40px; }
+
+/* ==========================================================================
+   Secciones Específicas
+   ========================================================================== */
+.hero { padding: 100px 0; text-align: center; }
+.hero h1 { font-size: 3rem; font-weight: 700; margin-bottom: 20px; }
+
+.enfoque { background-color: var(--bg-main); padding: 60px 0; }
+.enfoque-card { background-color: var(--card-bg); padding: 25px; border-radius: 5px; border-left: 3px solid var(--brand-color); }
+
+.featured-product, .product-showcase { padding: 80px 0; }
+.featured-product .product-info .lead, .product-showcase .product-info .lead { font-size: 1.5rem; color: var(--brand-color); margin-bottom: 15px; }
+.product-showcase .product-info h2 { font-size: 2.5rem; color: var(--text-primary); margin-top: 0; }
+.product-showcase ul { list-style: none; padding: 0; }
+.product-showcase ul li { margin-bottom: 10px; background: url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23007BFF"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>') no-repeat left center; background-size: 20px; padding-left: 30px; }
+.future-product { background-color: var(--card-bg); text-align: center; border-top: 1px solid var(--border-color); }
+.future-product h2 { color: var(--brand-color); }
+
+.pricing { background-color: var(--bg-main); padding: 80px 0; border-top: 1px solid var(--border-color); }
+.pricing-card { background-color: var(--card-bg); padding: 30px; border-radius: 5px; text-align: center; }
+.pricing-card.recommended { border: 2px solid var(--brand-color); transform: scale(1.05); }
+.pricing-card .price { color: var(--text-primary); font-size: 2rem; font-weight: bold; margin: 20px 0; }
+.pricing-card.recommended h3 { color: var(--brand-color); }
+
+/* ==========================================================================
+   Footer
+   ========================================================================== */
+footer { background-color: var(--card-bg); padding: 30px 0; color: var(--text-muted); font-size: 0.9rem; border-top: 1px solid var(--border-color); }
+footer .container { display: flex; justify-content: space-between; align-items: center; padding-top: 0; padding-bottom: 0; }
+footer nav ul { list-style: none; padding: 0; margin: 0; display: flex; }
+footer nav ul li { margin-left: 15px; }
+footer nav ul li a { color: var(--text-muted); text-decoration: none; transition: color 0.3s ease; }
+footer nav ul li a:hover { color: var(--brand-color); }
+
+/* ==========================================================================
+   Estilos para la Página de Filosofía (filosofia.html)
+   ========================================================================== */
+
+.mision-vision {
+    padding: 80px 0;
+    text-align: center;
+}
+
+.mision-vision.alt-bg {
+    background-color: var(--card-bg);
+}
+
+.mision-vision h2 {
+    color: var(--brand-color);
+    margin-bottom: 30px;
+    font-size: 2rem;
+}
+
+.mision-vision blockquote {
+    border-left: 4px solid var(--brand-color);
+    margin: 0 auto;
+    padding: 10px 40px;
+    font-size: 1.5rem;
+    font-style: italic;
+    font-weight: 300;
+    color: var(--text-secondary);
+    max-width: 800px;
+}
+
+.valores {
+    padding: 80px 0;
+}
+
+.grid-valores {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+}
+
+.valor-card {
+    background-color: var(--card-bg);
+    padding: 30px;
+    border-radius: 5px;
+    border-top: 4px solid var(--brand-color);
+}
+
+.valor-card h3 {
+    color: var(--text-primary);
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 1.3rem;
+}
+
+.valor-card p {
+    color: var(--text-secondary);
+    margin-bottom: 0;
+}
+
+/* ==========================================================================
+   Responsividad y Menú Móvil
+   ========================================================================== */
+.menu-toggle { display: none; background: none; border: none; color: var(--text-primary); font-size: 1.5rem; cursor: pointer; }
+@media (max-width: 768px) {
+    .container { padding: 20px; }
+    header .container { flex-direction: row; }
+    .logo { margin-bottom: 0; }
+    nav { display: none; position: absolute; top: 100%; left: 0; width: 100%; background-color: var(--card-bg); }
+    nav.open { display: block; }
+    nav ul { flex-direction: column; padding: 20px; }
+    nav ul li { margin: 10px 0; }
+    .menu-toggle { display: block; }
+    .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
+    .pricing-card.recommended { transform: scale(1); }
+    footer .container { flex-direction: column; text-align: center; }
+    footer nav ul { flex-direction: column; margin-top: 10px; }
+    footer nav ul li { margin: 5px 0; }
+}
+
