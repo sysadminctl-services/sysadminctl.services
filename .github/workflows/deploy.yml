@@ -34,5 +34,5 @@ jobs:
           protocol: ftp 
           port: 21
           local-dir: ./_site/
-          remote-dir: ${{ secrets.REMOTE_PATH }}
+          server-dir: ${{ secrets.REMOTE_PATH }}
           cleanup: true
