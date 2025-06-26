@@ -65,6 +65,17 @@ nav ul li a:hover { color: var(--brand-color); }
 nav ul li.cta a { background-color: var(--brand-color); color: var(--brand-text-color); padding: 10px 20px; border-radius: 5px; }
 nav ul li.cta a:hover { opacity: 0.85; }
 
+
+.logo a {
+    display: inline-block;
+}
+
+.logo img {
+    height: 50px; 
+    width: auto; 
+    vertical-align: middle; 
+}
+
 /* ==========================================================================
    Botones
    ========================================================================== */
