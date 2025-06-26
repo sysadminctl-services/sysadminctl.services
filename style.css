@@ -123,30 +123,45 @@ footer nav ul li a:hover { color: var(--brand-color); }
    Estilos para la Página de Filosofía (filosofia.html)
    ========================================================================== */
 
-.mision-vision {
+.mision-vision-wrapper {
     padding: 80px 0;
+    background-color: var(--card-bg); /* Fondo unificado para toda la sección */
+}
+
+/* El contenedor que usará Flexbox */
+.mision-vision-flex-container {
+    display: flex;         /* ¡La magia! Pone los elementos en fila */
+    flex-wrap: wrap;       /* Permite que los elementos se apilen si no hay espacio */
+    gap: 40px;             /* Espacio entre las dos tarjetas */
+    justify-content: center; /* Centra las tarjetas si hay espacio extra */
+}
+
+/* Estilo para cada una de las "tarjetas" (Misión y Visión) */
+.mision-vision-card {
+    flex: 1;               /* Hace que cada tarjeta crezca para ocupar el espacio disponible */
+    min-width: 350px;      /* Ancho mínimo antes de que se apilen. ¡Ajusta si es necesario! */
+    padding: 30px;
+    border-radius: 5px;
+    background-color: var(--bg-main); /* Un fondo ligeramente diferente para el efecto de tarjeta */
     text-align: center;
 }
 
-.mision-vision.alt-bg {
-    background-color: var(--card-bg);
-}
-
-.mision-vision h2 {
+.mision-vision-card h2 {
     color: var(--brand-color);
-    margin-bottom: 30px;
+    margin-top: 0;
+    margin-bottom: 20px;
     font-size: 2rem;
 }
 
-.mision-vision blockquote {
+.mision-vision-card blockquote {
     border-left: 4px solid var(--brand-color);
-    margin: 0 auto;
-    padding: 10px 40px;
-    font-size: 1.5rem;
+    margin: 0;
+    padding: 10px 20px 10px 30px;
+    font-size: 1.1rem; /* Un poco más pequeño para que quepa mejor */
     font-style: italic;
     font-weight: 300;
     color: var(--text-secondary);
-    max-width: 800px;
+    text-align: left; /* El texto de la cita se ve mejor alineado a la izquierda */
 }
 
 .valores {
@@ -176,6 +191,62 @@ footer nav ul li a:hover { color: var(--brand-color); }
 .valor-card p {
     color: var(--text-secondary);
     margin-bottom: 0;
+}
+
+/* ==========================================================================
+   Estilos para Video de Fondo en Hero
+   ========================================================================== */
+
+/* 1. Prepara el contenedor principal */
+.hero-video-bg {
+    position: relative; /* Establece el contexto para el posicionamiento absoluto del video */
+    overflow: hidden;   /* Evita que el video se desborde */
+    color: #fff;        /* Asegura que el texto sea blanco para mejor contraste */
+}
+
+/* 2. Estiliza el video para que actúe como fondo */
+.hero-background-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Centra el video perfectamente */
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -1; /* ¡MUY IMPORTANTE! Empuja el video detrás de todo */
+    filter: brightness(0.7); /* Opcional: Oscurece un poco el video */
+}
+
+/* 3. Añade una capa de superposición para mejorar la legibilidad del texto */
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Capa negra con 50% de opacidad */
+    z-index: 0;
+}
+
+/* 4. Asegura que el contenido (texto) esté por encima de la capa y el video */
+.hero-content {
+    position: relative;
+    z-index: 1;
+}
+
+/* 5. Fallback para móviles (¡Buena práctica!) */
+/* En pantallas de menos de 768px, ocultamos el video y usamos la imagen del 'poster' */
+@media (max-width: 768px) {
+    .hero-background-video {
+        display: none; /* Oculta el video en móviles */
+    }
+
+    .hero-video-bg {
+        /* Usamos la imagen de fallback como fondo estático */
+        background: url('/assets/fallback-image.jpg') no-repeat center center;
+        background-size: cover;
+    }
 }
 
 /* ==========================================================================
